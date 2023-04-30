@@ -23,7 +23,11 @@ async function bootstrap() {
 		.addTag('api')
 		.build();
 	const document = SwaggerModule.createDocument(app, config);
-	SwaggerModule.setup('swagger', app, document);
+	SwaggerModule.setup('swagger', app, document, {
+		swaggerOptions: {
+			persistAuthorization: true,
+		},
+	});
 
 	await app.listen(5000);
 }

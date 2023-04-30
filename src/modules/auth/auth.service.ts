@@ -6,7 +6,9 @@ import { UsersService } from '../users/users.service';
 export class AuthService {
 	constructor(private readonly usersService: UsersService) {}
 	async validateUser(userName: string, password: string) {
-		const user = await this.usersService.findOne({ where: { userName } });
+		const user = await this.usersService.findOne({
+			where: { userName: userName.toLowerCase() },
+		});
 
 		if (!user) {
 			throw new UnauthorizedException('Invalid credentials');

@@ -13,7 +13,12 @@ import { UsersService } from './users.service';
 import { createUserDTO } from './dto';
 import { LocalAuthGuard } from '../auth/local.auth.guard';
 import { AuthenticatedGuard } from '../auth/authenticated.guard';
-import { ApiBody, ApiOkResponse } from '@nestjs/swagger';
+import {
+	ApiBody,
+	ApiCookieAuth,
+	ApiOkResponse,
+	ApiTags,
+} from '@nestjs/swagger';
 import {
 	LoginCheckResponse,
 	LoginUserRequest,
@@ -23,6 +28,7 @@ import {
 } from './type';
 
 @Controller('users')
+@ApiTags('users')
 export class UsersController {
 	constructor(private readonly userService: UsersService) {}
 
@@ -46,6 +52,7 @@ export class UsersController {
 	@Get('/login-check')
 	@UseGuards(AuthenticatedGuard)
 	@ApiOkResponse({ type: LoginCheckResponse })
+	@ApiCookieAuth()
 	loginCheck(@Req() request) {
 		return request.user;
 	}

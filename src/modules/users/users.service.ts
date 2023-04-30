@@ -38,7 +38,11 @@ export class UsersService {
 			return { warningMessage: 'Пользователь с таким email уже существует' };
 		}
 		const hashedPassword = await bcrypt.hash(createUserDTO.password, 7);
-		const user = new User({ ...createUserDTO, password: hashedPassword });
+		const user = new User({
+			userName: createUserDTO.userName.toLowerCase(),
+			email: createUserDTO.email,
+			password: hashedPassword,
+		});
 		return user.save();
 	}
 }
