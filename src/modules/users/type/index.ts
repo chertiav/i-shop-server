@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class LoginUserRequest {
-	@ApiProperty()
-	userName: string;
+	@ApiProperty({ default: 'Andrey' })
+	username: string;
 
-	@ApiProperty()
+	@ApiProperty({ default: '123' })
 	password: string;
 }
 

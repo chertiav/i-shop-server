@@ -6,6 +6,7 @@ import { SequelizeConfigService } from '../../confiiguration/sequelizeConfig.ser
 import { databaseConfig } from '../../confiiguration/configuration';
 import { UsersModule } from '../users/users.module';
 import { AuthModule } from '../auth/auth.module';
+import { BoilerPartsModule } from '../boiler-parts/boiler-parts.module';
 
 @Module({
 	imports: [
@@ -18,6 +19,7 @@ import { AuthModule } from '../auth/auth.module';
 		}),
 		UsersModule,
 		AuthModule,
+		BoilerPartsModule,
 	],
 })
 export class AppModule {}
