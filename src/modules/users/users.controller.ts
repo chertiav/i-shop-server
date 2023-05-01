@@ -57,7 +57,7 @@ export class UsersController {
 		return request.user;
 	}
 
-	@Post('/logout')
+	@Get('/logout')
 	@ApiOkResponse({ type: LogoutUserResponse })
 	logout(@Req() request) {
 		request.session.destroy();
