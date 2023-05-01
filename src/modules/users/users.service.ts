@@ -13,7 +13,7 @@ export class UsersService {
 	) {}
 
 	async findOne(filter: {
-		where: { id?: string; userName?: string; email?: string };
+		where: { id?: number | string; userName?: string; email?: string };
 	}): Promise<User> {
 		try {
 			return this.userRepository.findOne({ ...filter });
