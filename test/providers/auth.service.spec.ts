@@ -3,14 +3,12 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
-import * as request from 'supertest';
 //==================================================================
 import { SequelizeConfigService } from '../../src/confiiguration/sequelizeConfig.service';
 import { databaseConfig } from '../../src/confiiguration/configuration';
 import { User } from '../../src/modules/users/models/users.model';
 import { AuthModule } from '../../src/modules/auth/auth.module';
 import { AuthService } from '../../src/modules/auth/auth.service';
-import { UsersService } from '../../src/modules/users/users.service';
 
 const mockedUser = {
 	userName: 'John',
