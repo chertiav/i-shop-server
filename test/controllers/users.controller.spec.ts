@@ -10,11 +10,6 @@ import { databaseConfig } from '../../src/confiiguration/configuration';
 import { UsersModule } from '../../src/modules/users/users.module';
 import { User } from '../../src/modules/users/models/users.model';
 
-const mockedUser = {
-	userName: 'John',
-	email: 'john@gmail.com',
-	password: 'john123',
-};
 describe('User Controller', () => {
 	let app: INestApplication;
 
@@ -36,25 +31,8 @@ describe('User Controller', () => {
 		await app.init();
 	});
 
-	beforeEach(async () => {
-		const hashedPassword = await bcrypt.hash(mockedUser.password, 7);
-		const user = new User({
-			userName: mockedUser.userName.toLowerCase(),
-			email: mockedUser.email,
-			password: hashedPassword,
-		});
-		return user.save();
-	});
-
 	afterEach(async () => {
-		await User.destroy({
-			where: { userName: mockedUser.userName.toLowerCase() },
-		});
-	});
-	afterEach(async () => {
-		await User.destroy({
-			where: { userName: 'test' },
-		});
+		await User.destroy({ where: { userName: 'test' } });
 	});
 
 	it('should create user', async () => {
