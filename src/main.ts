@@ -15,6 +15,10 @@ async function bootstrap() {
 	);
 	app.use(passport.initialize());
 	app.use(passport.session());
+	app.enableCors({
+		credentials: true,
+		origin: ['http://localhost:3000'],
+	});
 
 	const config = new DocumentBuilder()
 		.setTitle('Название интернет магазина')
