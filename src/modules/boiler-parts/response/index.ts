@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { BoilerParts } from '../models/boiler-parts.model';
 
 export class BoilerPartsQuery {
 	@ApiProperty({ default: 20 })
