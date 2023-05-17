@@ -3,6 +3,7 @@ import * as session from 'express-session';
 import * as passport from 'passport';
 import { AppModule } from './modules/app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as parseDbUrl from 'parse-database-url';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
@@ -33,6 +34,9 @@ async function bootstrap() {
 		},
 	});
 
-	await app.listen(5000);
+	const dbConfig = parseDbUrl(process.env.DATABASE_URL);
+	console.log(dbConfig);
+
+	await app.listen(process.env.port || 5000);
 }
 bootstrap();
