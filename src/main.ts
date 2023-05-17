@@ -18,7 +18,10 @@ async function bootstrap() {
 	app.use(passport.session());
 	app.enableCors({
 		credentials: true,
-		origin: ['http://localhost:3000'],
+		origin: [
+			'http://localhost:3000',
+			'https://i-shop-client-production.up.railway.app/',
+		],
 	});
 
 	const config = new DocumentBuilder()
