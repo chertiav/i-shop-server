@@ -20,7 +20,7 @@ async function bootstrap() {
 		credentials: true,
 		origin: [
 			'http://localhost:3000',
-			'https://i-shop-client-production.up.railway.app/',
+			'https://i-shop-client-production.up.railway.app',
 		],
 	});
 
